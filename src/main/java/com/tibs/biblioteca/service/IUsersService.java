@@ -1,5 +1,6 @@
 package com.tibs.biblioteca.service;
 
+import com.tibs.biblioteca.DTO.UsersDTO;
 import com.tibs.biblioteca.domain.Emprestimo;
 import com.tibs.biblioteca.domain.Multa;
 import com.tibs.biblioteca.domain.Users;
@@ -7,7 +8,7 @@ import com.tibs.biblioteca.domain.Users;
 import java.util.List;
 
 public interface IUsersService {
-    Users criarUsuarios(Users users);
+    Users criarUsuarios(UsersDTO usersDTO);
 
     Users retornarUser(Long id);
 
