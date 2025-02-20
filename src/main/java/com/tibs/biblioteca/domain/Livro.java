@@ -22,7 +22,7 @@ public class Livro {
 
     private LocalDate dataLancamento;
 
-    private Boolean estaAlugado = false;
+    private Boolean alugado = false;
 
     @Enumerated(EnumType.STRING)
     private Genero genero;

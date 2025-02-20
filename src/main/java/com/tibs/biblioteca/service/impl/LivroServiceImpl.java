@@ -27,8 +27,7 @@ public class LivroServiceImpl implements ILivroService {
 
     @Override
     public Livro adicionarLivro(Long userid, LivroDTO livroDTO) {
-        Boolean verificador = verificadorCargo.temPapel(userid);
-        if(verificador == false){
+        if(!verificadorCargo.temPapel(userid)){
             throw new IllegalStateException("O usuário nao tem permissão para adicionar um livro novo");
         }
         Livro livro = new Livro();
@@ -73,7 +72,13 @@ public class LivroServiceImpl implements ILivroService {
     }
 
     @Override
-    public void deletarLivro(Long id) {
-
+    public void deletarLivro(Long userid, Long id) {
+        if (!verificadorCargo.temPapel(userid)) {
+            throw new IllegalStateException("O usuário nao tem permissão para excluir o livro!");
+        }
+        if (!livroRepository.findAlugadoById(id)) {
+            throw new IllegalStateException("O livro nao pode ser excluido, está alugado!");
+        }
+        livroRepository.deleteById(id);
     }
 }

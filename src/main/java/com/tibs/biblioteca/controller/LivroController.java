@@ -23,4 +23,9 @@ public class LivroController {
     public List<Livro> listarLivros(){
         return livroService.listarTodosLivros();
     }
+
+    @DeleteMapping
+    public void deletarLivro(@RequestParam Long userId, Long id){
+        livroService.deletarLivro(userId, id);
+    }
 }

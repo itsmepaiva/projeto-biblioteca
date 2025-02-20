@@ -16,7 +16,7 @@ public interface ILivroService {
 
     List<Livro> listarLivrosAlugados (Boolean alugados);
 
-    void deletarLivro (Long id);
+    void deletarLivro (Long userId, Long id);
 
     /*
     Livro update (Long id):
